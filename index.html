@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroVision</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>AgroVision</h1>
+
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <button id="darkModeBtn">🌙</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h2>Agro forte, futuro sustentável</h2>
+
+      <p>
+        Tecnologia e sustentabilidade trabalhando juntas
+        para preservar o meio ambiente.
+      </p>
+
+      <button id="explorarBtn">Explorar</button>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="cards">
+
+    <h2>Problemas Ambientais</h2>
+
+    <div class="container-cards">
+
+      <article class="card">
+        <h3>Desmatamento</h3>
+        <p>Impacto causado pela expansão agrícola.</p>
+      </article>
+
+      <article class="card">
+        <h3>Uso Excessivo de Água</h3>
+        <p>Desperdício em sistemas antigos.</p>
+      </article>
+
+      <article class="card">
+        <h3>Poluição</h3>
+        <p>Uso incorreto de defensivos agrícolas.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes">
+
+    <h2>Soluções Sustentáveis</h2>
+
+    <div class="solucao">
+      <h3>🌱 Irrigação Inteligente</h3>
+      <p>Reduz desperdício de água.</p>
+    </div>
+
+    <div class="solucao">
+      <h3>☀ Energia Solar</h3>
+      <p>Energia limpa no campo.</p>
+    </div>
+
+    <div class="solucao">
+      <h3>🚜 Agricultura de Precisão</h3>
+      <p>Maior produtividade com menos impacto.</p>
+    </div>
+
+  </section>
+
+  <!-- CALCULADORA -->
+  <section id="calculadora">
+
+    <h2>Calculadora Sustentável</h2>
+
+    <input type="number" id="agua" placeholder="Consumo de água">
+
+    <input type="number" id="energia" placeholder="Consumo de energia">
+
+    <button onclick="calcularImpacto()">
+      Calcular
+    </button>
+
+    <p id="resultado"></p>
+
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+
+    <h2>Quiz Sustentável</h2>
+
+    <p>
+      Qual prática ajuda mais o meio ambiente?
+    </p>
+
+    <button onclick="respostaQuiz('certa')">
+      Irrigação Inteligente
+    </button>
+
+    <button onclick="respostaQuiz('errada')">
+      Queimadas
+    </button>
+
+    <p id="quizResultado"></p>
+
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+
+    <h2>Contato</h2>
+
+    <form id="formContato">
+
+      <input type="text" id="nome" placeholder="Seu nome">
+
+      <input type="email" id="email" placeholder="Seu email">
+
+      <textarea id="mensagem" placeholder="Mensagem"></textarea>
+
+      <button type="submit">
+        Enviar
+      </button>
+
+    </form>
+
+    <p id="mensagemForm"></p>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 AgroVision</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
