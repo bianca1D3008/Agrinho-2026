@@ -25,4 +25,4 @@ Projeto desenvolvido com o objetivo de demonstrar a importância do equilíbrio 
 Basta abrir o arquivo index.html no navegador.
 
 ## Autor
-Seu Nome
+Bianca Torres Fusca
