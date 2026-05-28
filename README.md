@@ -1,28 +1,28 @@
-# AgroVision
+# AgroVision - Futuro Sustentável
 
 ## Objetivo
-Projeto desenvolvido com o objetivo de demonstrar a importância do equilíbrio entre produção agrícola e sustentabilidade ambiental.
+Demonstrar a importância do equilíbrio entre produção agrícola e sustentabilidade ambiental.
 
-## Tecnologias Utilizadas
+## Tecnologias
 - HTML5
 - CSS3
 - JavaScript
 
 ## Funcionalidades
-- Dark mode
-- Responsividade
+- Dark Mode
+- Responsividade (Mobile e Desktop)
 - Quiz interativo
 - Calculadora sustentável
 - Scroll suave
 - Formulário validado
 
-## Estrutura
-- index.html
-- style.css
-- script.js
+## Estrutura do Projeto
+- `index.html` → Conteúdo e semântica HTML
+- `style.css` → Layout, cores, responsividade e dark mode
+- `script.js` → Lógica do site, quiz, calculadora e interatividade
 
-## Como executar
-Basta abrir o arquivo index.html no navegador.
-
-## Autor
-Bianca Torres Fusca
+## Como usar
+1. Abrir o `index.html` em um navegador.
+2. Navegar pelas seções do site.
+3. Interagir com quiz e calculadora.
+4. Enviar mensagens via formulário de contato.
