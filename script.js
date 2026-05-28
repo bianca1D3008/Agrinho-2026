@@ -1,147 +1,173 @@
+// ==========================
 // DARK MODE
-const darkModeBtn = document.getElementById("darkModeBtn");
+// ==========================
+
+const darkModeBtn =
+document.getElementById("darkModeToggle");
 
 darkModeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+
+    document.body.classList.toggle("dark-mode");
+
 });
 
-// SCROLL SUAVE
-const explorarBtn = document.getElementById("explorarBtn");
 
-explorarBtn.addEventListener("click", () => {
-  document
-    .getElementById("sobre")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
-});
-
-// CALCULADORA
-function calcularImpacto() {
-
-  const agua =
-    Number(document.getElementById("agua").value);
-
-  const energia =
-    Number(document.getElementById("energia").value);
-
-  const resultado =
-    document.getElementById("resultado");
-
-  // validação
-  if (agua <= 0 || energia <= 0) {
-
-    resultado.innerHTML =
-      "Digite valores válidos.";
-
-    resultado.style.color = "red";
-
-    return;
-  }
-
-  // cálculo simples
-  const impacto =
-    agua * 0.4 + energia * 0.6;
-
-  // resultado
-  if (impacto < 100) {
-
-    resultado.innerHTML =
-      "🌱 Excelente sustentabilidade!";
-
-    resultado.style.color = "green";
-
-  } else if (impacto < 300) {
-
-    resultado.innerHTML =
-      "⚠ Impacto moderado.";
-
-    resultado.style.color = "orange";
-
-  } else {
-
-    resultado.innerHTML =
-      "❌ Alto impacto ambiental.";
-
-    resultado.style.color = "red";
-  }
-}
-
+// ==========================
 // QUIZ
-function respostaQuiz(resposta) {
+// ==========================
 
-  const resultadoQuiz =
-    document.getElementById("quizResultado");
+const quizQuestions = [
 
-  if (resposta === "certa") {
+    {
+        question:
+        "O que é agricultura sustentável?",
 
-    resultadoQuiz.innerHTML =
-      "✅ Resposta correta!";
+        options: [
+            "Uso excessivo de agrotóxicos",
+            "Equilíbrio entre produção e meio ambiente",
+            "Desmatamento"
+        ],
 
-    resultadoQuiz.style.color = "green";
+        answer: 1
+    },
 
-  } else {
+    {
+        question:
+        "Qual prática ajuda o meio ambiente?",
 
-    resultadoQuiz.innerHTML =
-      "❌ Resposta incorreta.";
+        options: [
+            "Queimadas",
+            "Plantio direto",
+            "Poluição"
+        ],
 
-    resultadoQuiz.style.color = "red";
-  }
-}
+        answer: 1
+    }
 
+];
+
+const quizContainer =
+document.getElementById("quiz-container");
+
+quizQuestions.forEach((q, index) => {
+
+    const div =
+    document.createElement("div");
+
+    div.innerHTML = `
+        <p><strong>${q.question}</strong></p>
+
+        ${q.options.map((option, i) => `
+            <label>
+                <input
+                    type="radio"
+                    name="question${index}"
+                    value="${i}"
+                >
+                ${option}
+            </label>
+            <br>
+        `).join("")}
+    `;
+
+    quizContainer.appendChild(div);
+
+});
+
+
+// BOTÃO DO QUIZ
+document.getElementById("quiz-submit")
+.addEventListener("click", () => {
+
+    let score = 0;
+
+    quizQuestions.forEach((q, index) => {
+
+        const selected =
+        document.querySelector(
+            `input[name="question${index}"]:checked`
+        );
+
+        if(
+            selected &&
+            parseInt(selected.value) === q.answer
+        ){
+            score++;
+        }
+
+    });
+
+    document.getElementById("quiz-result")
+    .textContent =
+    `Você acertou ${score} de ${quizQuestions.length} perguntas!`;
+
+});
+
+
+// ==========================
+// CALCULADORA
+// ==========================
+
+document.getElementById("calcForm")
+.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const hectares =
+    parseFloat(
+        document.getElementById("hectares").value
+    );
+
+    const fertilizante =
+    parseFloat(
+        document.getElementById("fertilizante").value
+    );
+
+    const impacto =
+    (fertilizante / hectares).toFixed(2);
+
+    document.getElementById("calcResult")
+    .textContent =
+    `Impacto estimado: ${impacto} kg por hectare.`;
+
+});
+
+
+// ==========================
 // FORMULÁRIO
-const form =
-  document.getElementById("formContato");
+// ==========================
 
-form.addEventListener("submit", (event) => {
+document.getElementById("contactForm")
+.addEventListener("submit", (e) => {
 
-  event.preventDefault();
+    e.preventDefault();
 
-  const nome =
-    document.getElementById("nome").value;
+    document.getElementById("contactMessage")
+    .textContent =
+    "Mensagem enviada com sucesso!";
 
-  const email =
-    document.getElementById("email").value;
+    e.target.reset();
 
-  const mensagem =
-    document.getElementById("mensagem").value;
+});
 
-  const mensagemForm =
-    document.getElementById("mensagemForm");
 
-  // validações
-  if (
-    nome === "" ||
-    email === "" ||
-    mensagem === ""
-  ) {
+// ==========================
+// SCROLL SUAVE
+// ==========================
 
-    mensagemForm.innerHTML =
-      "Preencha todos os campos.";
+document.querySelectorAll("nav a")
+.forEach(anchor => {
 
-    mensagemForm.style.color = "red";
+    anchor.addEventListener("click", function(e){
 
-    return;
-  }
+        e.preventDefault();
 
-  // regex email
-  const regex =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        document.querySelector(
+            this.getAttribute("href")
+        ).scrollIntoView({
+            behavior: "smooth"
+        });
 
-  if (!regex.test(email)) {
+    });
 
-    mensagemForm.innerHTML =
-      "Digite um email válido.";
-
-    mensagemForm.style.color = "red";
-
-    return;
-  }
-
-  mensagemForm.innerHTML =
-    "✅ Mensagem enviada com sucesso!";
-
-  mensagemForm.style.color = "green";
-
-  form.reset();
 });
